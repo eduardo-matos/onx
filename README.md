@@ -20,9 +20,9 @@ require(['dojo/dom', 'onx/delay'], function (dom, delay) {
 Buffers an event by a specific amount of time in miliseconds.
 
 ```javascript
-require(['dojo/dom', 'onx/delay'], function (dom, delay) {
+require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
     var element = dom.byId('some-id');
-    delay(element, 'click', function () {
+    buffer(element, 'click', function () {
         // this function will be called
         // at most once every 200ms
     }, 200);
