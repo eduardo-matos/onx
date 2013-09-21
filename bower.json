@@ -1,0 +1,8 @@
+{
+  "name": "onx",
+  "version": "0.1.0",
+  "devDependencies": {
+    "mout": "~0.7.1",
+    "dojo": "~1.9.1"
+  }
+}
