@@ -16,7 +16,8 @@ define({
     },
 
     suites: [
-        'tests/delay'
+        'tests/delay',
+        'tests/buffer'
     ],
 
     excludeInstrumentation: /^tests\//
