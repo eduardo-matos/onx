@@ -51,6 +51,23 @@ define([
             }), 30);
 
             on.emit(dummyObj, 'abc', {bubbles: false});
+        },
+
+        'should fire as many events as triggered': function () {
+            var dfd = this.async(200);
+            var qtyExecutions = 0;
+
+            delay(dummyObj, 'abc', function () {
+                qtyExecutions += 1;
+            }, 50);
+
+            setTimeout(dfd.callback(function () {
+                assert.strictEqual(3, qtyExecutions);
+            }), 100);
+
+            on.emit(dummyObj, 'abc', {bubbles: false});
+            on.emit(dummyObj, 'abc', {bubbles: false});
+            on.emit(dummyObj, 'abc', {bubbles: false});
         }
     });
 
