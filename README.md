@@ -4,7 +4,7 @@ Extensions to `dojo/on` module
 ## How to use
 
 ### onx/delay
-Delays an event by a specific amount of time in miliseconds.
+Delays an event by a specific amount of time in milliseconds.
 
 ```javascript   
 require(['dojo/dom', 'onx/delay'], function (dom, delay) {
@@ -17,7 +17,7 @@ require(['dojo/dom', 'onx/delay'], function (dom, delay) {
 ```
 
 ### onx/buffer
-Buffers an event by a specific amount of time in miliseconds.
+Buffers an event by a specific amount of time in milliseconds.
 
 ```javascript
 require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
@@ -31,7 +31,7 @@ require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
 
 ## Unit testing
 To run the unit tests, make sure you install all dependencies (`bower install && npm install`).
-You must have a webserver running. It's ok to use Python (`python -m SimpleHTTPServer 8080`) or PHP (`PHP -S localhost:8080`) to create a development server. Then head to `http://localhost:8080/node_modules/intern/client.html?config=tests/intern` and take a look at you browser console.
+You must have a webserver running. It's ok to use Python (`python -m SimpleHTTPServer 8080`) or PHP (`PHP -S localhost:8080`) to create a development server. Then head to `http://localhost:8080/node_modules/intern/client.html?config=tests/intern` and take a look at your browser console.
 
 All unit tests are located at the tests directory.
 
