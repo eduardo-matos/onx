@@ -29,6 +29,26 @@ require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
 });
 ```
 
+### Canceling callback execution
+It's possible to cancel the callback execution on both _delay_ and _buffer_ modules.
+You just need to call `handle.cancel` like the following example.
+
+```javascript
+require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
+    var element = dom.byId('some-id');
+    var handle = buffer(element, 'click', function () {
+        // this function will be called
+        // at most once every 200ms
+    }, 200);
+
+    // forcing event emission
+    on.emit(element, 'click', {bubbles: true});
+
+    // callback won't be called
+    handle.cancel();
+});
+```
+
 ## Unit testing
 To run the unit tests, make sure you install all dependencies (`bower install && npm install`).
 You must have a webserver running. It's ok to use Python (`python -m SimpleHTTPServer 8080`) or PHP (`PHP -S localhost:8080`) to create a development server. Then head to `http://localhost:8080/node_modules/intern/client.html?config=tests/intern` and take a look at your browser console.
