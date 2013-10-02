@@ -38,6 +38,25 @@ define([
             setTimeout(function  () {
                 on.emit(dummyObj, 'abc', {bubbles: false});
             }, 20);
+        },
+
+        'should allow canceling the callback': function () {
+            var dfd = this.async(100);
+            var qtyExecutions = 0;
+
+            var handle = buffer(dummyObj, 'abc', function () {
+                qtyExecutions += 1;
+            }, 50);
+
+            setTimeout(dfd.callback(function () {
+                assert.strictEqual(qtyExecutions, 0);
+            }), 80);
+
+            on.emit(dummyObj, 'abc', {bubbles: false});
+
+            setTimeout(function () {
+                handle.cancel();
+            }, 30);
         }
     });
 });
