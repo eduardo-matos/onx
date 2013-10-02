@@ -6,16 +6,28 @@ define([
     'use strict';
 
     function callDelayed (fn, delay) {
-        return function () {
+
+        var timeoutHandle,
+            returnFn = function () {
             var args = arguments;
-            setTimeout(function () {
+            timeoutHandle = setTimeout(function () {
                 fn.apply(this, args);
             }, delay);
         };
+
+        returnFn.cancel = function () {
+            clearTimeout(timeoutHandle);
+        };
+
+        return returnFn;
     }
 
     return function (obj, evt, fn, delay) {
         fn = delay? callDelayed(fn, delay): fn;
-        return on(obj, evt, fn);
+        var handle = on(obj, evt, fn);
+
+        handle.cancel = fn.cancel;
+
+        return handle;
     };
 });

@@ -66,6 +66,24 @@ define([
             on.emit(dummyObj, 'abc', {bubbles: false});
             on.emit(dummyObj, 'abc', {bubbles: false});
             on.emit(dummyObj, 'abc', {bubbles: false});
+        },
+
+        'should allow canceling the callback': function () {
+            var dfd = this.async(200);
+            var qtyExecutions = 0;
+
+            var handle = delay(dummyObj, 'abc', function () {
+                qtyExecutions += 1;
+            }, 50);
+
+            setTimeout(dfd.callback(function () {
+                assert.strictEqual(0, qtyExecutions);
+            }), 100);
+
+            on.emit(dummyObj, 'abc', {bubbles: false});
+            setTimeout(function () {
+                handle.cancel();
+            }, 30);
         }
     });
 
