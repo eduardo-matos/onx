@@ -118,7 +118,7 @@ require(['dojo/dom', 'onx/on/buffer'], function (dom, buffer) {
 ```
 
 ### Function signatues
-With the exception of the last parameter, all functions have the same signature as it's "parent"
+With the exception of the last parameter, all functions have the same signature as their "parents"
 
 * `onx/on/delay` and `onx/on/buffer` signature === `dojo/on` signature + 1 parameter (delay or buffer)
 * `onx/topic/delay` and `onx/topic/buffer` signature === `dojo/topic` signature + 1 parameter (delay or buffer)
