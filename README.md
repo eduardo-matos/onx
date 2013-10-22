@@ -3,11 +3,11 @@ Extensions to `dojo/on` module
 
 ## How to use
 
-### onx/delay
+### onx/on/delay
 Delays an event by a specific amount of time in milliseconds.
 
 ```javascript   
-require(['dojo/dom', 'onx/delay'], function (dom, delay) {
+require(['dojo/dom', 'onx/on/delay'], function (dom, delay) {
     var element = dom.byId('some-id');
     delay(element, 'click', function () {
         // this function will be called 200ms
@@ -16,11 +16,11 @@ require(['dojo/dom', 'onx/delay'], function (dom, delay) {
 });
 ```
 
-### onx/buffer
+### onx/on/buffer
 Buffers an event by a specific amount of time in milliseconds.
 
 ```javascript
-require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
+require(['dojo/dom', 'onx/on/buffer'], function (dom, buffer) {
     var element = dom.byId('some-id');
     buffer(element, 'click', function () {
         // this function will be called
@@ -34,7 +34,7 @@ It's possible to cancel the callback execution on both _delay_ and _buffer_ modu
 You just need to call `handle.cancel` like the following example.
 
 ```javascript
-require(['dojo/dom', 'onx/buffer'], function (dom, buffer) {
+require(['dojo/dom', 'onx/on/buffer'], function (dom, buffer) {
     var element = dom.byId('some-id');
     var handle = buffer(element, 'click', function () {
         // this function will be called
