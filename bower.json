@@ -1,6 +1,6 @@
 {
   "name": "onx",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "mout": "~0.7.1",
     "dojo": "~1.9.1"
