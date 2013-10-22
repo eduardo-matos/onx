@@ -1,18 +1,17 @@
 define([
-    'dojo/on',
-    'mout/function/debounce'
+    './on/buffer',
+    'dojo/has',
+    'dojo/_base/kernel'
 ], function (
-    on,
-    debounce
+    buffer,
+    has,
+    kernel
 ) {
     'use strict';
 
-    return function (obj, evt, fn, buffer) {
-        fn = buffer? debounce(fn, buffer): fn;
-        var handle = on(obj, evt, fn);
+    if(has('dojo-debug-messages')) {
+        kernel.deprecated('onx/buffer', 'Use onx/on/buffer instead.');
+    }
 
-        handle.cancel = fn.cancel;
-
-        return handle;
-    };
+    return buffer;
 });

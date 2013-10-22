@@ -1,18 +1,17 @@
 define([
-    'dojo/on',
-    './util/delayed'
+    './on/delay',
+    'dojo/has',
+    'dojo/_base/kernel'
 ], function (
-    on,
-    delayed
+    delay,
+    has,
+    kernel
 ) {
     'use strict';
 
-    return function (obj, evt, fn, delay) {
-        fn = delay? delayed(fn, delay): fn;
-        var handle = on(obj, evt, fn);
+    if(has('dojo-debug-messages')) {
+        kernel.deprecated('onx/delay', 'Use onx/on/delay instead.');
+    }
 
-        handle.cancel = fn.cancel;
-
-        return handle;
-    };
+    return delay;
 });
