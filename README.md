@@ -117,6 +117,15 @@ require(['dojo/dom', 'onx/on/buffer'], function (dom, buffer) {
 });
 ```
 
+### Function signatues
+With the exception of the last parameter, all functions have the same signature as it's "parent"
+
+* `onx/on/delay` and `onx/on/buffer` signature === `dojo/on` signature + 1 parameter (delay or buffer)
+* `onx/topic/delay` and `onx/topic/buffer` signature === `dojo/topic` signature + 1 parameter (delay or buffer)
+* `onx/aspect/delay` and `onx/aspect/buffer` signature === `dojo/aspect::after` signature + 1 parameter (delay or buffer)
+
+Things are done this way to keep it simple to swap modules.
+
 ## Unit testing
 To run the unit tests, make sure you install all dependencies (`bower install && npm install`).
 You must have a webserver running. It's ok to use Python (`python -m SimpleHTTPServer 8080`) or PHP (`PHP -S localhost:8080`) to create a development server. Then head to `http://localhost:8080/node_modules/intern/client.html?config=tests/intern` and take a look at your browser console.
