@@ -29,6 +29,35 @@ require(['dojo/dom', 'onx/on/buffer'], function (dom, buffer) {
 });
 ```
 
+### onx/topic/delay
+Delays a topic callback by a specific amount of time in milliseconds.
+
+```javascript
+require(['dojo/topic', 'onx/topic/delay'], function (topic, delay) {
+    delay('/abc', function () {
+        // this function will be called 200ms
+        // after the actual topic publish.
+    }, 200);
+
+    topic.publish('/abc');
+});
+```
+
+### onx/topic/buffer
+Buffers a topic by a specific amount of time in milliseconds.
+
+```javascript
+require(['dojo/topic', 'onx/topic/buffer'], function (topic, buffer) {
+    buffer('/abc', function () {
+        // this function will be called
+        // at most once every 200ms
+    }, 200);
+
+    topic.publish('/abc');
+    topic.publish('/abc');
+});
+```
+
 ### Canceling callback execution
 It's possible to cancel the callback execution on both _delay_ and _buffer_ modules.
 You just need to call `handle.cancel` like the following example.
