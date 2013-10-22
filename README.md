@@ -58,6 +58,45 @@ require(['dojo/topic', 'onx/topic/buffer'], function (topic, buffer) {
 });
 ```
 
+### onx/aspect/delay
+Delays an aspect callback by a specific amount of time in milliseconds.
+
+```javascript
+require(['dojo/aspect', 'onx/aspect/delay'], function (aspect, delay) {
+    var foo = {
+        bar: function () {}
+    };
+
+    delay(foo, 'bar', function () {
+        // this function will be called 200ms
+        // after 'foo.bar' execution.
+    }, false, 200);
+
+    foo.bar();
+});
+```
+
+### onx/aspect/buffer
+Buffers an aspect by a specific amount of time in milliseconds.
+
+```javascript
+require(['dojo/aspect', 'onx/aspect/buffer'], function (aspect, buffer) {
+    var foo = {
+        bar: function () {}
+    };
+
+    buffer(foo, 'bar', function () {
+        // this function will be called
+        // at most once every 200ms
+    }, false, 200);
+
+    foo.bar();
+    foo.bar();
+});
+```
+
+_Ps.: Both `onx/aspect/delay` and `onx/aspect/buffer` are attached to `aspect.after` method._
+
 ### Canceling callback execution
 It's possible to cancel the callback execution on both _delay_ and _buffer_ modules.
 You just need to call `handle.cancel` like the following example.
