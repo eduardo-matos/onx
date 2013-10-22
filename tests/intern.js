@@ -18,7 +18,8 @@ define({
     suites: [
         'tests/delay',
         'tests/buffer',
-        'tests/topic/buffer'
+        'tests/topic/buffer',
+        'tests/topic/delay'
     ],
 
     excludeInstrumentation: /^tests\//
