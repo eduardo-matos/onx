@@ -1,5 +1,5 @@
 # ONX
-Extensions to `dojo/on` module
+_Buffer_ and _delay_ extensions to Dojo modules that handle events, like `dojo/on`, `dojo/topic`, `dojo/aspect` and `dojo/NodeList`.
 
 ## How to use
 
@@ -97,6 +97,30 @@ require(['dojo/aspect', 'onx/aspect/buffer'], function (aspect, buffer) {
 
 _Ps.: Both `onx/aspect/delay` and `onx/aspect/buffer` are attached to `aspect.after` method._
 
+### onx/NodeList/delay
+Adds `onx/on/delay` extension to `dojo/NodeList`.
+
+```javascript
+require(['dojo/query', 'onx/NodeList/delay'], function (query) {
+    query('#some-id').delay('click', function () {
+        // this function will be called 200ms
+        // after the actual click.
+    }, 200);
+});
+```
+
+### onx/NodeList/buffer
+Adds `onx/on/buffer` extension to `dojo/NodeList`.
+
+```javascript
+require(['dojo/query', 'onx/NodeList/buffer'], function (query) {
+    query('#some-id').buffer('click', function () {
+        // this function will be called
+        // at most once every 200ms
+    }, 200);
+});
+```
+
 ### Canceling callback execution
 It's possible to cancel the callback execution on both _delay_ and _buffer_ modules.
 You just need to call `handle.cancel` like the following example.
@@ -123,6 +147,7 @@ With the exception of the last parameter, all functions have the same signature 
 * `onx/on/delay` and `onx/on/buffer` signature === `dojo/on` signature + 1 parameter (delay or buffer)
 * `onx/topic/delay` and `onx/topic/buffer` signature === `dojo/topic` signature + 1 parameter (delay or buffer)
 * `onx/aspect/delay` and `onx/aspect/buffer` signature === `dojo/aspect::after` signature + 1 parameter (delay or buffer)
+* `onx/NodeList/delay` and `onx/NodeList/buffer` signature === `dojo/NodeList::on` signature + 1 parameter (delay or buffer)
 
 Things are done this way to keep it simple to swap modules.
 
