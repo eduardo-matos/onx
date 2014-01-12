@@ -18,7 +18,9 @@ define({
         'tests/topic/buffer',
         'tests/topic/delay',
         'tests/aspect/buffer',
-        'tests/aspect/delay'
+        'tests/aspect/delay',
+        'tests/NodeList/delay',
+        'tests/NodeList/buffer'
     ],
 
     excludeInstrumentation: /^tests\//
