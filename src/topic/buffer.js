@@ -1,14 +1,14 @@
 define([
     'dojo/topic',
-    'mout/function/debounce'
+    '../util/buffered'
 ], function (
     topic,
-    debounce
+    buffered
 ) {
     'use strict';
 
     return function (evt, fn, buffer) {
-        fn = buffer? debounce(fn, buffer): fn;
+        fn = buffer? buffered(fn, buffer): fn;
         var handle = topic.subscribe(evt, fn);
 
         handle.cancel = fn.cancel;

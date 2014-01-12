@@ -1,14 +1,14 @@
 define([
     'dojo/on',
-    'mout/function/debounce'
+    '../util/buffered'
 ], function (
     on,
-    debounce
+    buffered
 ) {
     'use strict';
 
     return function (obj, evt, fn, buffer) {
-        fn = buffer? debounce(fn, buffer): fn;
+        fn = buffer? buffered(fn, buffer): fn;
         var handle = on(obj, evt, fn);
 
         handle.cancel = fn.cancel;

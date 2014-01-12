@@ -9,9 +9,6 @@ define({
         },{
             name: 'dojo',
             location: './bower_components/dojo'
-        },{
-            name: 'mout',
-            location: './bower_components/mout/src'
         }]
     },
 

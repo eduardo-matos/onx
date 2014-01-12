@@ -1,14 +1,14 @@
 define([
     'dojo/aspect',
-    'mout/function/debounce'
+    '../util/buffered'
 ], function (
     aspect,
-    debounce
+    buffered
 ) {
     'use strict';
 
     return function (obj, method, fn, receiveArguments, buffer) {
-        fn = buffer? debounce(fn, buffer): fn;
+        fn = buffer? buffered(fn, buffer): fn;
         var handle = aspect.after(obj, method, fn, receiveArguments);
 
         handle.cancel = fn.cancel;
