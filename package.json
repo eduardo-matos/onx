@@ -3,5 +3,9 @@
   "version": "0.1.0",
   "devDependencies": {
     "intern": "~2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eduardo-matos/onx.git"
   }
 }
